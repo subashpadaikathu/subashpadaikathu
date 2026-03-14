@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+          
+        }
+
+        a img {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        main img {
+            width: 30rem;
+            height: 30rem;
+
+        }
+
+        .plus {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            border: none;
+            background: none;
+            padding: 0;
+
+        }
+
+        .plus:hover {
+            background-color: rgb(252, 246, 246);
+
+
+        }
+
+
+        .id {
+            width: 3rem;
+            height: 3rem;
+            background-color: blueviolet;
+
+
+            text-decoration: none;
+        }
+
+        .left {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        main img {
+            width: 30rem;
+            height: 20rem;
+            margin-top: 5rem;
+
+        }
+
+        .inputbar {
+
+            border: 1px solid;
+            width: 40rem;
+            height: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 1.5rem;
+            padding-right: 1rem;
+            position: absolute;
+            top: 25rem;
+
+        }
+
+        .AI {
+            display: flex;
+            gap: 0.1rem;
+        }
+
+        .AI:hover {
+            box-shadow: 0px 0px 2px grey;
+            border-radius: 1rem;
+        }
+
+        .AI p {
+            display: inline;
+        }
+
+        .inputbar input {
+            width: 20rem;
+            outline: none;
+            border: none;
+            padding-left: 0;
+        }
+
+        .first {
+            gap: 0;
+
+        }
+
+        .input-below-buttons {
+            display: flex;
+            margin-top: 3rem;
+            gap: 1rem;
+
+
+
+        }
+
+        button {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: rgb(245, 234, 234);
+            border: none;
+
+        }
+
+        button:hover {
+            border: 2px solid rgb(179, 178, 178);
+        }
+
+       .lastmain a {
+            text-decoration: none;
+            color: rgb(15, 15, 148);
+
+        }
+
+       .lastmain a:hover {
+            text-decoration: underline;
+
+        }
+
+        .lastmain {
+            font-size: 0.8rem;
+            margin-top: 3rem
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            
+        }
+        footer .left {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+      footer.right {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        footer .fInnercontainer{
+            display: flex;
+            justify-content: space-between;
+            
+
+        }
+
+        footer{
+            margin-top: 12%;
+
+        }
+    footer .india ,footer .fInnercontainer{
+        background-color: rgb(223, 221, 221);
+        padding: 0.4rem 1.4rem;
+        
+    }
+    footer .fInnercontainer{
+        border-top: 1px solid rgb(165, 151, 151);
+    }
+    footer p:hover{
+        text-decoration: underline;
+    }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="left">
+                <a href="">About</a>
+                <a href="">Store</a>
+            </div>
+            <div class="right">
+                <a href="">Gmail</a><a href="">Image</a>
+                <span>&#8801;</span>
+
+                <a href=""><img
+                        src="data:image/png;base64,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"
+                        alt="" class="id"></a>
+
+
+
+
+            </div>
+        </header>
+
+
+
+
+        <main>
+
+            <img src="https://storage.googleapis.com/gd-prod/images/a910d418-7123-4bc4-aa3b-ef7e25e74ae6.60c498c559810aa0.webp"
+                alt="">
+
+            <div class="inputbar">
+
+                <button class="plus">+</button>
+                <input type="text">
+
+
+                <span class="material-icons">mic</span>
+                <span class="material-icons">photo_camera</span>
+                <div class="AI">
+
+                    <span class="material-icons">search</span>
+                    <p>AI Mode</p>
+
+
+
+                </div>
+
+            </div>
+
+            <div class="input-below-buttons">
+                <button>Google Search</button><button>I'm Feeling Lucky</button>
+            </div>
+            <P class="lastmain">
+                Google offered in: <a href="" .hindi> हिन्दी বাংলা తెలుగు मराठी தமிழ் ગુજરાતી ಕನ್ನಡ മലയാളം ਪੰਜਾਬੀ</a>
+            </P>
+        </main>
+        <footer>
+            <p class="india">india</p>
+            <div class="fInnercontainer">
+                 <div class="left">
+                <p>
+                    Advertising
+
+                </p>
+                <p>Business</p>
+                <p>How Search Works</p>
+            </div>
+            <div class="right">
+                <p>Privacy</p>
+                <p>Terms</p>
+                <p>Settings</p>
+            </div>
+            </div>
+
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
