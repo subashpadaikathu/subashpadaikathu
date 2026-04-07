@@ -158,13 +158,31 @@
 
 
 
-let subash = (n1,n3) => n1%n3;
+// let subash = (n1,n3) => n1%n3;
 
-console.log(subash(3,3));
-console.log(subash(10,10))
-console.log(subash(1,10))
-console.log(subash(12,10))
-console.log(subash(15,10))
+// console.log(subash(3,3));
+// console.log(subash(10,10))
+// console.log(subash(1,10))
+// console.log(subash(12,10))
+// console.log(subash(15,10))
+
+
+// OBJECT
+
+
+    const person = {
+name: "John",
+age: 25,
+Education:{
+ug : "civil",
+}
+}
+
+console.log(person.Education.ug)
+person.Education.ug = "IT";
+console.log(person.Education.ug)
+person.age = 19;
+console.log(`AGE : ${person.age}`)
 
 
 
