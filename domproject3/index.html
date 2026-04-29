@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>count : <span id="count">0</span></h1>
+    <button id="add" onclick="increase()">+</button>
+    <button id="sub" onclick="decrease()">-</button>
+    <button id="reset" onclick="resets()">reset</button>
+    
+   <script>
+    const count = document.getElementById("count");
+    const increase = document.getElementById("add");
+    const resets = document.getElementById("reset");
+    const decrease = document.getElementById("sub");
+
+    let i = 0;
+    function increase(){
+        i++;
+        count.innerText= i;
+        
+
+
+    }
+      function decrease(){
+        i--;
+        count.innerText= i;
+        
+
+
+    }
+      function resets(){
+      
+        count.innerText= "0";
+        
+
+
+    }
+   </script>
+
+</body>
+</html>
