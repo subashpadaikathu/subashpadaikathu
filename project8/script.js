@@ -170,26 +170,33 @@
 // OBJECT
 
 
-    const person = {
-name: "John",
-age: 25,
-Education:{
-ug : "civil",
-}
-}
+//     const person = {
+// name: "John",
+// age: 25,
+// Education:{
+// ug : "civil",
+// }
+// }
 
-console.log(person.Education.ug)
-person.Education.ug = "IT";
-console.log(person.Education.ug)
-person.age = 19;
-console.log(`AGE : ${person.age}`)
-
-
+// console.log(person.Education.ug)
+// person.Education.ug = "IT";
+// console.log(person.Education.ug)
+// person.age = 19;
+// console.log(`AGE : ${person.age}`)
 
 
 
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// fruits.length = 2;
+// document.getElementById("demo").innerHTML = fruits;
+// console.log(fruits)
 
 
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let myList = fruits.toString();
+console.log(typeof myList)
+console.log(typeof fruits)
 
 
 
