@@ -1,0 +1,48 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Button */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Links */
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
