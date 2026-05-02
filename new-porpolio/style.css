@@ -5,11 +5,14 @@
 }
 
 
+
+
 nav ul  {
     list-style-type: none;
      display: flex;
      justify-content: center;
      gap: 2rem;
+     
 }
 
 nav ul li a{
@@ -32,15 +35,15 @@ nav ul li a{
     gap: 3rem;
     padding: 2rem;
     color: white;
-    background-color: #1b0546;
+    background-color: #3a2c2c;
 }
 
 .profile-pic{
-    width: 10rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
     border: 0.1rem solid white;
     border-radius: 50%;
-    background-color: rgb(55, 110, 158);
+    background-color: rgb(126, 105, 105);
     color: black;
     display: flex;
     justify-content: center;
@@ -77,8 +80,8 @@ h2{
     display: flex;
     justify-content: center;
     gap: 5rem;
-    margin-top: 5rem;
     padding: 10rem;
+  
    
 
 
@@ -89,9 +92,10 @@ h2{
     
 }
 .skill-category ul{
-     list-style-type: none;
+   
      display: block;
      margin-top: 2rem;
+     padding-left: 5rem;
 }
 
 .skill-category{
@@ -140,6 +144,7 @@ footer{
     display: flex;
     justify-content: center;
     margin-top: 8rem;
+
 }
 
 
