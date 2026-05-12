@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+
+        body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding: 5rem;
+
+        }
+
+        .abc {
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 2rem;
+        }
+
+        .abc img{
+            width: 10rem;
+            height: 13rem;
+        }
+    
+    </Style>
+</head>
+<body>
+    <script>
+
+        fetch('https://fakestoreapi.com/products')
+            .then((res) => res.json())
+            .then((data) => {
+                  console.log(data);
+                // const divTag = document.getElementById("card");
+                for (let i = 0; i < data.length; i++) {
+                    const divTag = document.createElement("div");
+                    divTag.setAttribute("class", "abc");
+                    const imgTag = document.createElement('img');
+                    const h2Tag = document.createElement("h3");
+                    const h1P = document.createElement("h1");
+                    const h1R = document.createElement("h1");
+
+                    h2Tag.innerText = data[i].title;
+                    imgTag.src = data[i].image;
+                    h1P.innerText = ` Price $ ${data[i].price}`;
+                    h1R.innerText = ` Rating : ${data[i].rating.rate}`;
+                
+
+                    
+                    divTag.appendChild(h2Tag);
+                    
+                    divTag.appendChild(h1P);
+                    divTag.appendChild(imgTag);
+                    divTag.appendChild(h1R);
+                    document.body.appendChild(divTag);
+                }
+
+            })
+            .catch((err) => console.log(err))
+
+
+        // async function getProducts() {
+        //     try {
+        //         const res = await fetch("https://fakestoreapi.com/products");
+        //         const data = await res.json();
+        //         console.log(data);
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // }
+
+        // getProducts();
+      
+    </script>
+
+
+
+
+    
+    
+</body>
+</html>

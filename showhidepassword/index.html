@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+
+     
+
+    #input{
+        outline: none;
+        border: none;
+    }
+    div{
+        display: inline-flex;
+        border: 1px solid grey;
+        border-radius: 1rem;
+        padding: 0.3rem;
+    }
+    #show{
+                outline: none;
+                border: none;
+                background-color: white;
+    }
+    img{
+        height: 1rem;
+    }
+ </style>
+</head>
+<body>
+   <div>
+     <input id="input" type="text">
+    <button id="show" onclick="fun()"><img src="./image copy.png" alt="" id="photo"></button>
+   </div>
+    <script>
+    const box = document.getElementById("input");
+    const show = document.getElementById("show");
+    const photo = document.getElementById("photo");
+    
+
+
+
+   function fun(){
+    if(box.type == "text"){
+        box.type = "password";
+      photo.src = "./image.png";
+        
+    }else{
+        box.type = "text";
+        photo.src="./image copy.png"
+    }
+   }
+
+    </script>
+    
+</body>
+</html>

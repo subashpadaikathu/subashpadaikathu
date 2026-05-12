@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> count : <span id="count">0</span></h1>
+    <input type="text" id="input" oninput="calculate()">
+
+    <script>
+        const input = document.getElementById("input")
+        const count = document.getElementById("count")
+
+        
+
+        function calculate(){
+
+            count.innerText = input.value.length;
+
+        }
+
+        
+    </script>
+    
+</body>
+</html>

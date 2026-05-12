@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+               background-color: rgb(98, 98, 147);
+               text-align: center;
+               padding-top: 3rem;
+        }
+        #out{
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         
+
+        }
+        #outer-container{
+            width: 80vw;
+            height: 50vh;
+            background-color: rgb(127, 107, 156);
+            margin-top: 10rem;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #in{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5rem;
+            background-color: white;
+            padding: 1rem;
+            width: 50%;
+            border-radius: 1rem;
+        
+        }
+        #todolist{
+            border: none;
+            outline: none;
+            width: 90%;
+            /* background-color: red; */
+        }
+        
+
+        #list {
+            /* background-color: white; */
+            margin-top: 2rem;
+            border-radius: 1rem;
+            padding: 0.6rem;
+            display: block;
+            list-style-type: none;
+
+        }
+        #list li{
+           margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TO DO LIST</h1> 
+
+<div id="out">
+<div id="outer-container">
+    <div id="in">
+            <input type="text" id="todolist">
+    <button id="add" onclick="addtodo()">Add</button>
+    </div>
+
+    <ul id="list">
+      
+    </ul>
+
+</div>
+</div>
+
+
+
+<script>
+    function addtodo() {
+
+
+        
+        const inputbox  = document.getElementById("todolist");
+        const list = document.getElementById("list");
+        let user_input = inputbox.value;
+       const item = document.createElement("li");
+       item.innerHTML =`<span ondblclick="toggle(this)">${user_input}</span> <button onclick = "deleteTask(this)">Delete</button>`;
+       list.appendChild(item);
+       inputbox.value="";
+
+
+    }
+
+
+
+    function toggle(element){
+
+        element.style.textDecoration =
+          element.style.textDecoration === "line-through"
+          ? "none"
+          : "line-through";
+
+
+    }
+    function deleteTask(element){
+        element.parentElement.remove()
+
+    }
+
+</script>
+
+
+    
+</body>
+
+</html>
