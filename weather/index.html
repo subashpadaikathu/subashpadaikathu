@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        text-align: center;
+    }
+
+    .outer-container {
+        border: 1px solid;
+        display: inline-flex;
+        padding: 0.5rem;
+        width: 40%;
+        justify-content: space-between;
+        border-radius: 1.5rem;
+
+
+
+    }
+
+    .outer {
+        width: 50%;
+        border: 1px solid;
+        margin-left: 25%;
+       
+        margin-top: 4rem;
+        background-color: rgb(114, 114, 173);
+        box-shadow: 0px 0px 10px rgb(54, 54, 105);
+        border-radius: 1rem;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #input {
+        outline: none;
+        border: none;
+        background-color: rgb(114, 114, 173);
+    }
+
+    .secondChild {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .button{
+        background-color: rgb(192, 184, 184);
+        border-radius: 1rem;
+        padding: 0.2rem;
+    }
+</style>
+
+<body>
+
+    <div class="outer">
+        <div class="outer-container">
+            <input type="text" id="input">
+            <button onclick="searchCity()" class="button">Search</button>
+
+        </div>
+        <div class="secondChild">
+            <p id="para"></p>
+            <h1 id="days"></h1>
+            <p id="dates"></p>
+            <img src="" alt="" id="img">
+        </div>
+        <div class="thirdSecond">
+            <h1 id="degree"></h1>
+            <!-- <h3 id="situation">Heavy rain</h3> -->
+            <p id="feelLike"></p>
+        </div>
+    </div>
+
+    <script>
+        const userInput = document.querySelector("#input");
+        const searchButton = document.querySelector(".button");
+        const degree = document.getElementById("degree");
+        const situation = document.getElementById("situation");
+        const feelLike = document.getElementById("feelLike");
+        const para = document.getElementById("para");
+        const days = document.getElementById("days");
+        const dates = document.getElementById("dates");
+        const image = document.getElementById("img");
+        // const degree = document.getElementById("degree");
+        // const degree = document.getElementById("degree");
+        const apiKey = "3a7438740bce5f030ff9420bf8891095";
+        const currentDate = new Date();
+        const dayss = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        // const date = currentDate.getDate();
+        // const month = currentDate.getMonth() + 1; 
+        // const year = currentDate.getFullYear(); 
+
+
+
+
+
+        function searchCity() {
+
+            const City = userInput.value;
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${City}&appid=${apiKey}&units=metric`)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data.main);
+
+                    para.innerText = `Location :${City}`;
+
+                    userInput.value = "";
+
+                    days.innerText = dayss[currentDate.getDay()];
+
+                    dates.innerText = `Date : ${currentDate.getDate()}`;
+                    // months.innerText = currentDate.getMonth() + 1;
+                    // year.innerText = dayss[currentDate.getDay()];
+
+                    degree.innerText = ` Temperature :${data.main.temp}`;
+
+                    feelLike.innerText = `feel like :${data.main.feels_like}`;
+
+
+
+                })
+
+        }
+
+
+    </script>
+</body>
+
+</html>
