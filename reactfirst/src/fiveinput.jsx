@@ -25,7 +25,7 @@ return (
 <input type="text" placeholder="enter email" name="email" onChange={handleChanges}/>
 <input type="text" placeholder="enter city" name="city" onChange={handleChanges}/>
 <input type="text" placeholder="enter phone" name="phone" onChange={handleChanges}/>
-<input type="text" placeholder="enter password" name="password" onChange={handleChanges}/>
+<input type="password" placeholder="enter password" name="password" onChange={handleChanges}/>
  
  <h1>FORM</h1>
  <h3>Name : {formData.name}</h3>
