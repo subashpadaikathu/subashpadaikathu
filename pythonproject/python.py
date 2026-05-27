@@ -30,9 +30,43 @@
 # print(day);
 
 
-total = 0 #
-no = 1
-while no<=10:
-    total = total + no
-    no = no + 1
-print(total)
+# total = 0 #
+# no = 1
+# while no<=10:
+#     total = total + no
+#     no = no + 1
+# print(total)
+
+# adi = 512
+# person = 0
+# while adi > 0:
+#     adi = adi//2
+#     person = person + 1
+# print(person)
+
+# train = 0
+
+# while train < 30:
+#     train = train + 1 
+    
+#     if train % 3 == 0 and train % 5 == 0:
+#         print("train will meet in ", train)
+
+
+
+theif = 40
+police = 0
+
+while theif > police:
+    theif += 2
+    police += 5
+print(theif)    
+
+# theif = 40
+# police = 0
+
+# while theif > police:
+#     theif += 2
+#     police += 5
+
+# print(theif)
