@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fresh Basket Market</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./image.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --green: #2ecc71;
+      --dark-green: #27ae60;
+      --orange: #ff9f43;
+      --red: #ff6b6b;
+      --dark: #1e272e;
+      --light: #f5f6fa;
+      --white: #ffffff;
+      --gray: #7f8c8d;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .cart-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cart-btn:hover {
+      background: var(--dark-green);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 120px 8% 50px;
+      gap: 40px;
+      background: linear-gradient(to right, #f8fff9, #eefcf3);
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 65px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: var(--green);
+    }
+
+    .hero-text p {
+      color: var(--gray);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons button {
+      padding: 15px 28px;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .shop-btn {
+      background: var(--green);
+      color: white;
+    }
+
+    .shop-btn:hover {
+      background: var(--dark-green);
+      transform: translateY(-3px);
+    }
+
+    .learn-btn {
+      background: white;
+      border: 2px solid var(--green) !important;
+      color: var(--green);
+    }
+
+    .learn-btn:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .mini-card {
+      background: #f9f9f9;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .mini-card:hover {
+      transform: scale(1.05);
+    }
+
+    .mini-card h2 {
+      font-size: 50px;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    /* CATEGORY */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 25px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.4s;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .category-card h1 {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .category-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* PRODUCTS */
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-buttons button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: white;
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-top {
+      padding: 25px;
+      text-align: center;
+      background: #f8f8f8;
+    }
+
+    .product-top h1 {
+      font-size: 70px;
+    }
+
+    .tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--red);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-content h3 {
+      margin-bottom: 10px;
+    }
+
+    .product-content p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .add-btn {
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .add-btn:hover {
+      background: var(--dark-green);
+    }
+
+    /* STATS */
+
+    .stats {
+      background: linear-gradient(to right, var(--green), var(--dark-green));
+      color: white;
+      border-radius: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .stats h2 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* CONTACT */
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+    }
+
+    .contact-item h4 {
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 16px;
+      border-radius: 15px;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      padding: 15px;
+      border: none;
+      background: var(--green);
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .contact-form button:hover {
+      background: var(--dark-green);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    /* CART PANEL */
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+      z-index: 2000;
+      transition: 0.4s;
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .close-cart {
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .cart-item {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .cart-total {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--green);
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      border: none;
+      background: var(--green);
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 48px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width: 500px) {
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .cart-panel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="logo">Fresh<span>Basket</span></div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="cart-btn" id="openCart">
+      Cart (<span id="cartCount">0</span>)
+    </button>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <h1>
+        Fresh Vegetables, <span>Cookies</span>, Chocolates & More
+      </h1>
+
+      <p>
+        Welcome to Fresh Basket Market. We provide fresh vegetables,
+        healthy eggs, premium chocolates, tasty cookies, snacks,
+        groceries, and daily essentials with modern shopping experience.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="shop-btn">Shop Now</button>
+        <button class="learn-btn">Explore Store</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="hero-card">
+
+        <div class="hero-grid">
+
+          <div class="mini-card">
+            <h2>🥦</h2>
+            <p>Fresh Veggies</p>
+          </div>
+
+          <div class="mini-card">
+            <h2>🍫</h2>
+            <p>Chocolates</p>
+          </div>
+
+          <div class="mini-card">
+            <h2>🥚</h2>
+            <p>Organic Eggs</p>
+          </div>
+
+          <div class="mini-card">
+            <h2>🍪</h2>
+            <p>Cookies</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CATEGORY SECTION -->
+
+  <section id="categories">
+
+    <div class="section-title">
+      <h2>Our Categories</h2>
+      <p>
+        We provide multiple product categories for your daily shopping needs.
+      </p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category-card">
+        <h1>🥬</h1>
+        <h3>Vegetables</h3>
+        <p>Fresh and healthy farm vegetables.</p>
+      </div>
+
+      <div class="category-card">
+        <h1>🍫</h1>
+        <h3>Chocolates</h3>
+        <p>Imported and local chocolates.</p>
+      </div>
+
+      <div class="category-card">
+        <h1>🍪</h1>
+        <h3>Cookies</h3>
+        <p>Crunchy and tasty cookies collection.</p>
+      </div>
+
+      <div class="category-card">
+        <h1>🥚</h1>
+        <h3>Eggs</h3>
+        <p>Organic and protein rich eggs.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <div class="section-title">
+      <h2>Popular Products</h2>
+      <p>
+        Explore our premium quality products with modern shopping interface.
+      </p>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="vegetable">Vegetables</button>
+      <button class="filter" data-filter="chocolate">Chocolate</button>
+      <button class="filter" data-filter="cookies">Cookies</button>
+      <button class="filter" data-filter="eggs">Eggs</button>
+    </div>
+
+    <div class="products" id="productContainer">
+
+      <div class="product-card" data-category="vegetable">
+        <div class="tag">Fresh</div>
+
+        <div class="product-top">
+          <h1>🥕</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Organic Carrot</h3>
+          <p>
+            Farm fresh organic carrots directly delivered.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹40</div>
+            <button class="add-btn" data-name="Organic Carrot" data-price="40">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vegetable">
+        <div class="tag">Healthy</div>
+
+        <div class="product-top">
+          <h1>🥦</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Broccoli</h3>
+          <p>
+            Green and healthy broccoli packed with vitamins.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹90</div>
+            <button class="add-btn" data-name="Broccoli" data-price="90">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="chocolate">
+        <div class="tag">Sweet</div>
+
+        <div class="product-top">
+          <h1>🍫</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Dark Chocolate</h3>
+          <p>
+            Premium quality imported dark chocolate.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹120</div>
+            <button class="add-btn" data-name="Dark Chocolate" data-price="120">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="cookies">
+        <div class="tag">Crunchy</div>
+
+        <div class="product-top">
+          <h1>🍪</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Butter Cookies</h3>
+          <p>
+            Crispy butter cookies for tea and snacks.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹70</div>
+            <button class="add-btn" data-name="Butter Cookies" data-price="70">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="eggs">
+        <div class="tag">Protein</div>
+
+        <div class="product-top">
+          <h1>🥚</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Organic Eggs</h3>
+          <p>
+            High quality farm eggs rich in protein.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹110</div>
+            <button class="add-btn" data-name="Organic Eggs" data-price="110">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="vegetable">
+        <div class="tag">Natural</div>
+
+        <div class="product-top">
+          <h1>🍅</h1>
+        </div>
+
+        <div class="product-content">
+          <h3>Tomatoes</h3>
+          <p>
+            Fresh tomatoes directly from local farms.
+          </p>
+
+          <div class="price-row">
+            <div class="price">₹35</div>
+            <button class="add-btn" data-name="Tomatoes" data-price="35">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+
+  <section>
+
+    <div class="stats">
+
+      <div>
+        <h2>10K+</h2>
+        <p>Happy Customers</p>
+      </div>
+
+      <div>
+        <h2>500+</h2>
+        <p>Daily Orders</p>
+      </div>
+
+      <div>
+        <h2>50+</h2>
+        <p>Fresh Products</p>
+      </div>
+
+      <div>
+        <h2>24/7</h2>
+        <p>Customer Support</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- REVIEWS -->
+
+  <section id="reviews">
+
+    <div class="section-title">
+      <h2>Customer Reviews</h2>
+      <p>
+        Our customers love our quality products and fast delivery.
+      </p>
+    </div>
+
+    <div class="testimonials">
+
+      <div class="testimonial-card">
+        <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+        <p>
+          Amazing vegetables and very fresh products. The website design is also modern and easy to use.
+        </p>
+      </div>
+
+      <div class="testimonial-card">
+        <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+        <p>
+          I ordered chocolates and cookies. Delivery was fast and product quality is excellent.
+        </p>
+      </div>
+
+      <div class="testimonial-card">
+        <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+        <p>
+          Best grocery shopping experience. Smooth interface and beautiful product cards.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>
+        Have questions? Contact our support team anytime.
+      </p>
+    </div>
+
+    <div class="contact-wrapper">
+
+      <div class="contact-info">
+
+        <h3>Store Information</h3>
+
+        <div class="contact-item">
+          <h4>📍 Address</h4>
+          <p>Chennai, Tamil Nadu, India</p>
+        </div>
+
+        <div class="contact-item">
+          <h4>📞 Phone</h4>
+          <p>+91 98765 43210</p>
+        </div>
+
+        <div class="contact-item">
+          <h4>📧 Email</h4>
+          <p>freshbasket@gmail.com</p>
+        </div>
+
+      </div>
+
+      <div class="contact-form">
+
+        <form id="form">
+          <input type="text" placeholder="Enter your name" required>
+
+          <input type="email" placeholder="Enter your email" required>
+
+          <textarea rows="6" placeholder="Your Message"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>
+      © 2026 Fresh Basket Market | Designed with HTML CSS JavaScript
+    </p>
+  </footer>
+
+  <!-- CART -->
+
+  <div class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <div class="close-cart" id="closeCart">×</div>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      Total: ₹<span id="total">0</span>
+    </div>
+
+    <button class="checkout-btn">
+      Checkout
+    </button>
+
+  </div>
+
+  <script>
+
+    // FILTER PRODUCTS
+
+    const filters = document.querySelectorAll('.filter');
+    const products = document.querySelectorAll('.product-card');
+
+    filters.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        filters.forEach(btn => btn.classList.remove('active'));
+
+        button.classList.add('active');
+
+        const filterValue = button.getAttribute('data-filter');
+
+        products.forEach(product => {
+
+          if(filterValue === 'all') {
+            product.style.display = 'block';
+          }
+          else {
+            if(product.getAttribute('data-category') === filterValue) {
+              product.style.display = 'block';
+            }
+            else {
+              product.style.display = 'none';
+            }
+          }
+
+        });
+
+      });
+
+    });
+
+    // CART SYSTEM
+
+    const cartPanel = document.getElementById('cartPanel');
+    const openCart = document.getElementById('openCart');
+    const closeCart = document.getElementById('closeCart');
+    const cartItems = document.getElementById('cartItems');
+    const total = document.getElementById('total');
+    const cartCount = document.getElementById('cartCount');
+
+    let cart = [];
+
+    openCart.addEventListener('click', () => {
+      cartPanel.classList.add('active');
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartPanel.classList.remove('active');
+    });
+
+    const addButtons = document.querySelectorAll('.add-btn');
+
+    addButtons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const name = button.dataset.name;
+        const price = Number(button.dataset.price);
+
+        cart.push({
+          name,
+          price
+        });
+
+        updateCart();
+
+      });
+
+    });
+
+    function updateCart() {
+
+      cartItems.innerHTML = '';
+
+      let totalPrice = 0;
+
+      cart.forEach(item => {
+
+        totalPrice += item.price;
+
+        const div = document.createElement('div');
+
+        div.classList.add('cart-item');
+
+        div.innerHTML = `
+          <h4>${item.name}</h4>
+          <p>₹${item.price}</p>
+        `;
+
+        cartItems.appendChild(div);
+
+      });
+
+      total.innerText = totalPrice;
+      cartCount.innerText = cart.length;
+
+    }
+
+    // CONTACT FORM
+
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', (e) => {
+
+      e.preventDefault();
+
+      alert('Message Sent Successfully!');
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>

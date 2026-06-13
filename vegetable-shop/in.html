@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sree Sakthi Vegetables & Fruits</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      background:#0c0c0c;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      color:#ffcc00;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    .logo span{
+      color:white;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffcc00;
+    }
+
+    /* HERO */
+
+    .hero{
+      width:100%;
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url("./photo_1_2026-05-25_15-55-21.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:22px;
+      margin-bottom:30px;
+    }
+
+    .hero-content button{
+      padding:15px 35px;
+      border:none;
+      background:#ffcc00;
+      color:black;
+      font-size:18px;
+      border-radius:40px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .hero-content button:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:80px 8%;
+      display:flex;
+      gap:50px;
+      align-items:center;
+      flex-wrap:wrap;
+      background:white;
+    }
+
+    .about img{
+      width:500px;
+      max-width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h2{
+      font-size:45px;
+      margin-bottom:20px;
+      color:#1f7a1f;
+    }
+
+    .about-text p{
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    /* PRODUCTS */
+
+    .products{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .products h2{
+      font-size:45px;
+      margin-bottom:50px;
+      color:#1f7a1f;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.4s;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .card h3{
+      padding:15px;
+      font-size:25px;
+    }
+
+    .card p{
+      padding:0 15px 20px;
+      color:#555;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      padding:80px 8%;
+      background:white;
+    }
+
+    .gallery h2{
+      text-align:center;
+      font-size:45px;
+      margin-bottom:50px;
+      color:#1f7a1f;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:15px;
+      transition:0.4s;
+    }
+
+    .gallery-grid img:hover{
+      transform:scale(1.04);
+    }
+
+    /* ADDRESS */
+
+    .contact{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:45px;
+      margin-bottom:30px;
+      color:#1f7a1f;
+    }
+
+    .contact-box{
+      background:white;
+      max-width:700px;
+      margin:auto;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-box p{
+      font-size:20px;
+      margin:15px 0;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    /* ANIMATION */
+
+    .hidden{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero-content h1{
+        font-size:42px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="logo">SREE <span>SAKTHI</span></div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fresh Vegetables & Fruits</h1>
+      <p>Healthy • Fresh • Natural • Daily</p>
+      <button onclick="showMessage()">Visit Our Shop</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about hidden" id="about">
+
+    <img src="photo_5_2026-05-25_15-55-21.jpg" alt="shop"/>
+
+    <div class="about-text">
+      <h2>About Our Shop</h2>
+
+      <p>
+        Welcome to Sree Sakthi Vegetables, Fruits & Provision Store.
+        We provide fresh vegetables, healthy fruits, grocery items,
+        and daily needs with good quality and affordable prices.
+        Our goal is to deliver fresh and healthy products to every family.
+      </p>
+
+      <br>
+
+      <p>
+        We carefully select fresh farm vegetables and fruits every day.
+        Customer satisfaction and quality are our main priority.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="products hidden" id="products">
+
+    <h2>Our Fresh Collections</h2>
+
+    <div class="product-grid">
+
+      <div class="card">
+        <img src="photo_3_2026-05-25_15-55-21.jpg">
+        <h3>Fresh Guava</h3>
+        <p>Healthy and naturally fresh guava fruits available daily.</p>
+      </div>
+
+      <div class="card">
+        <img src="photo_4_2026-05-25_15-55-21.jpg">
+        <h3>Orange Fruits</h3>
+        <p>Sweet and juicy oranges directly from fresh suppliers.</p>
+      </div>
+
+      <div class="card">
+        <img src="photo_7_2026-05-25_15-55-21.jpg">
+        <h3>Fresh Fruits</h3>
+        <p>High-quality fruits and vegetables with freshness guaranteed.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery hidden" id="gallery">
+
+    <h2>Shop Gallery</h2>
+
+    <div class="gallery-grid">
+
+      <img src="photo_1_2026-05-25_15-55-21.jpg">
+      <img src="photo_2_2026-05-25_15-55-21.jpg">
+      <img src="photo_5_2026-05-25_15-55-21.jpg">
+      <img src="photo_6_2026-05-25_15-55-21.jpg">
+      <img src="photo_7_2026-05-25_15-55-21.jpg">
+      <img src="photo_4_2026-05-25_15-55-21.jpg">
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact hidden" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+
+      <p><strong>Shop Name:</strong> Sree Sakthi Vegetables & Fruits</p>
+
+      <p><strong>Address:</strong> VGP selva nagar , velachery</p>
+
+      <p><strong>Phone:</strong> +91 9047755713</p>
+
+      <!-- <p><strong>Email:</strong> sreesakthi@gmail.com</p> -->
+
+      <p><strong>Timing:</strong> 6:00 AM - 10:00 PM</p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 Sree Sakthi Vegetables & Fruits | All Rights Reserved</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function showMessage(){
+      alert("Welcome to Sree Sakthi Vegetables & Fruits!");
+    }
+
+    // SCROLL ANIMATION
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+
+    window.addEventListener("scroll", () => {
+
+      hiddenElements.forEach((element) => {
+
+        const position = element.getBoundingClientRect().top;
+
+        if(position < window.innerHeight - 100){
+          element.classList.add("show");
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ஸ்ரீ சக்தி காய்கறி & பழங்கள்</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      background:#111;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      color:#ffcc00;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    .logo span{
+      color:white;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffcc00;
+    }
+
+    /* HERO */
+
+    .hero{
+      width:100%;
+      height:90vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url("photo_1_2026-05-25_15-55-21.jpg");
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:24px;
+      margin-bottom:30px;
+    }
+
+    .hero-content button{
+      padding:15px 35px;
+      border:none;
+      background:#ffcc00;
+      color:black;
+      font-size:18px;
+      border-radius:40px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .hero-content button:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    /* ABOUT */
+
+    .about{
+      padding:80px 8%;
+      background:white;
+      display:flex;
+      gap:50px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .about img{
+      width:500px;
+      max-width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h2{
+      font-size:45px;
+      color:#1f7a1f;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      font-size:20px;
+      line-height:1.8;
+    }
+
+    /* PRODUCTS */
+
+    .products{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .products h2{
+      font-size:45px;
+      color:#1f7a1f;
+      margin-bottom:50px;
+    }
+
+    .product-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .card h3{
+      padding:15px;
+      font-size:28px;
+    }
+
+    .card p{
+      padding:0 15px 20px;
+      color:#555;
+      font-size:17px;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      padding:80px 8%;
+      background:white;
+    }
+
+    .gallery h2{
+      text-align:center;
+      font-size:45px;
+      color:#1f7a1f;
+      margin-bottom:50px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:15px;
+      transition:0.4s;
+    }
+
+    .gallery-grid img:hover{
+      transform:scale(1.04);
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:45px;
+      color:#1f7a1f;
+      margin-bottom:40px;
+    }
+
+    .contact-box{
+      background:white;
+      max-width:700px;
+      margin:auto;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-box p{
+      font-size:20px;
+      margin:15px 0;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    /* SCROLL EFFECT */
+
+    .hidden{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+      }
+
+      .hero-content h1{
+        font-size:42px;
+      }
+
+      .hero-content p{
+        font-size:20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">ஸ்ரீ <span>சக்தி</span></div>
+
+    <ul>
+      <li><a href="#">முகப்பு</a></li>
+      <li><a href="#about">எங்களை பற்றி</a></li>
+      <li><a href="#products">பொருட்கள்</a></li>
+      <li><a href="#gallery">புகைப்படங்கள்</a></li>
+      <li><a href="#contact">தொடர்பு</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>புதிய காய்கறிகள் & பழங்கள்</h1>
+
+      <p>ஆரோக்கியம் • தரம் • தினமும் புதிது</p>
+
+      <button onclick="showMessage()">எங்கள் கடைக்கு வருக</button>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about hidden" id="about">
+
+    <img src="photo_5_2026-05-25_15-55-21.jpg">
+
+    <div class="about-text">
+
+      <h2>எங்களை பற்றி</h2>
+
+      <p>
+        ஸ்ரீ சக்தி காய்கறி, பழங்கள் மற்றும் மளிகை கடைக்கு உங்களை அன்புடன் வரவேற்கிறோம்.
+        எங்கள் கடையில் தினமும் புதிய காய்கறிகள், ஆரோக்கியமான பழங்கள்,
+        மளிகை பொருட்கள் மற்றும் வீட்டு தேவைகள் தரமான முறையில் வழங்கப்படுகின்றன.
+      </p>
+
+      <br>
+
+      <p>
+        வாடிக்கையாளர்களின் நம்பிக்கையும் திருப்தியும் எங்களின் முக்கிய குறிக்கோள்.
+        குறைந்த விலையில் சிறந்த தரமான பொருட்களை வழங்குவது எங்கள் நோக்கம்.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="products hidden" id="products">
+
+    <h2>எங்கள் புதிய பொருட்கள்</h2>
+
+    <div class="product-grid">
+
+      <div class="card">
+
+        <img src="photo_3_2026-05-25_15-55-21.jpg">
+
+        <h3>கொய்யாப்பழம்</h3>
+
+        <p>
+          ஆரோக்கியமான மற்றும் புதிய கொய்யாப்பழங்கள் தினமும் கிடைக்கும்.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <img src="photo_4_2026-05-25_15-55-21.jpg">
+
+        <h3>ஆரஞ்சு பழம்</h3>
+
+        <p>
+          இனிப்பு மற்றும் சுவையான புதிய ஆரஞ்சுகள் கிடைக்கும்.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <img src="photo_7_2026-05-25_15-55-21.jpg">
+
+        <h3>புதிய பழங்கள்</h3>
+
+        <p>
+          தரமான மற்றும் புதிய பழங்கள் மற்றும் காய்கறிகள் கிடைக்கும்.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery hidden" id="gallery">
+
+    <h2>கடை புகைப்படங்கள்</h2>
+
+    <div class="gallery-grid">
+
+      <img src="photo_1_2026-05-25_15-55-21.jpg">
+      <img src="photo_2_2026-05-25_15-55-21.jpg">
+      <img src="photo_5_2026-05-25_15-55-21.jpg">
+      <img src="photo_6_2026-05-25_15-55-21.jpg">
+      <img src="photo_7_2026-05-25_15-55-21.jpg">
+      <img src="photo_4_2026-05-25_15-55-21.jpg">
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact hidden" id="contact">
+
+    <h2>தொடர்பு கொள்ள</h2>
+
+    <div class="contact-box">
+
+      <p><strong>கடை பெயர்:</strong> ஸ்ரீ சக்தி காய்கறி & பழங்கள்</p>
+
+      <p><strong>முகவரி:</strong> 24, காந்தி தெரு, அண்ணா நகர், சென்னை - 600040</p>
+
+      <p><strong>தொலைபேசி:</strong> +91 98765 43210</p>
+
+      <p><strong>மின்னஞ்சல்:</strong> sreesakthi@gmail.com</p>
+
+      <p><strong>நேரம்:</strong> காலை 6:00 - இரவு 10:00</p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 ஸ்ரீ சக்தி காய்கறி & பழங்கள் | அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை
+    </p>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function showMessage(){
+      alert("ஸ்ரீ சக்தி காய்கறி & பழங்கள் கடைக்கு வரவேற்கிறோம்!");
+    }
+
+    // SCROLL ANIMATION
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+
+    window.addEventListener("scroll", () => {
+
+      hiddenElements.forEach((element) => {
+
+        const position = element.getBoundingClientRect().top;
+
+        if(position < window.innerHeight - 100){
+          element.classList.add("show");
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

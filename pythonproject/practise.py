@@ -1,3 +1,4 @@
+
 # count = 0
 # while count < 5:
 #     print("1", end=" ")
@@ -102,6 +103,9 @@
 #         count += 1
 #     else:
 #         print("prime number")
+
+
+
 
 
 
